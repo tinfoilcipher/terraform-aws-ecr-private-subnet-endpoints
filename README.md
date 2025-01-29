@@ -1,8 +1,8 @@
-# Terraform Module - ECS VPC Endpoints for Private Subnets
+# Terraform Module - ECR VPC Endpoints for Private Subnets
 
-Terraform Module to create appropriate VPC Endpoints for use in private subnets (truly private subnets with no access to the internet).
+Terraform Module to create appropriate VPC Endpoints to access ECR from private subnets (truly private subnets with no access to the internet).
 
-Creates VPC interface endpoints and S3 Endpoint gateway (which is needed for image layer caching).
+Creates VPC interface Endpoints for ECR and S3 Gateway Endpoint (which is needed for image layer caching).
 
 See the blog post [here](https://www.tinfoilcipher.co.uk/2025/01/24/configuring-ecs-fargate-and-ecr-with-private-subnets/) for an in-depth breakdown of why all this is needed.
 
@@ -17,7 +17,7 @@ terraform init
 terraform apply
 ```
 
-### Create a endpoints, providing subnet and route table IDs
+### Create endpoints, providing subnet and route table IDs
 
 ```bash
 module "ecr_endpoints" {
@@ -25,11 +25,11 @@ module "ecr_endpoints" {
     version                       = "x.x.x"
     vpc_id                        = "vpc-01234567890abcdef"
     private_subnet_ids            = ["subnet-44444444444444444", "subnet-55555555555555555", "subnet-666666666666666666"]
-    private_route_table_ids       = ["rtb-00000000000000000, "rtb-11111111111111111", "rtb-abcdef33333333333"]
+    private_route_table_ids       = ["rtb-00000000000000000", "rtb-11111111111111111", "rtb-abcdef33333333333"]
 }
 ```
 
-### Create a endpoints, looking up subnets and route tables based on tags
+### Create endpoints, looking up subnets and route tables based on tags
 
 ```bash
 module "ecr_endpoints" {
