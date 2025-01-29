@@ -21,7 +21,7 @@ terraform apply
 
 ```bash
 module "ecr_endpoints" {
-    source                        = "tinfoilcipher/ecs-private-subnet-endpoints/aws"
+    source                        = "tinfoilcipher/ecr-private-subnet-endpoints/aws"
     version                       = "x.x.x"
     vpc_id                        = "vpc-01234567890abcdef"
     private_subnet_ids            = ["subnet-44444444444444444", "subnet-55555555555555555", "subnet-666666666666666666"]
@@ -33,7 +33,7 @@ module "ecr_endpoints" {
 
 ```bash
 module "ecr_endpoints" {
-    source                        = "tinfoilcipher/ecs-private-subnet-endpoints/aws"
+    source                        = "tinfoilcipher/ecr-private-subnet-endpoints/aws"
     version                       = "x.x.x"
     vpc_id                        = "vpc-01234567890abcdef"
     private_subnet_tag_key        = "tier"
@@ -46,7 +46,7 @@ module "ecr_endpoints" {
 ### Create additional endpoints for SSM, Telemetry, Logging
 ```bash
 module "ecr_endpoints" {
-    source                         = "tinfoilcipher/ecs-private-subnet-endpoints/aws"
+    source                         = "tinfoilcipher/ecr-private-subnet-endpoints/aws"
     version                        = "x.x.x"
     vpc_id                         = "vpc-01234567890abcdef"
     private_subnet_ids             = ["subnet-44444444444444444", "subnet-55555555555555555", "subnet-666666666666666666"]
